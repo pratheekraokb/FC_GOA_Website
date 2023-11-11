@@ -28,6 +28,9 @@
             color: white;
             display: flex;
         }
+        .navbar a{
+            color: white;
+        }
 
         div.logo {
             width: 15%;
@@ -344,7 +347,7 @@
                 <div class="lowerContent">
                     <h2 style="text-align: center; visibility: hidden;">FC GOA</h2>
                     <ul>
-                        <li><a href="#">HOME</a></li>
+                        <li><a id="homeLink" href="#">HOME</a></li>
                         <li><a href="#aboutus">ABOUT US</a></li>
                         <li><a href="#players">TEAM</a></li>
                         <li>FIXTURES</li>
@@ -402,10 +405,10 @@
             </p>
             <br>
             <div>
-                <img src="Materials/images/img5.webp" alt="" height="340px" width="400px">
+                <img src="Materials/images/img5.webp" alt="" height="340px" width="390px">
                 <img src="Materials/images/img4.webp" alt="" height="340px">
                 <img src="Materials/images/img7.jpg" alt="" height="340px">
-                <img src="Materials/images/img3.webp" alt="" height="340px" width="400px">
+                <img src="Materials/images/img3.webp" alt="" height="340px" width="380px">
             </div>
         </div>
 
@@ -516,8 +519,40 @@
         // Generate player cards when the DOM is fully loaded
         document.addEventListener("DOMContentLoaded", generatePlayerCards);
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get all the navigation links
+            const navLinks = document.querySelectorAll('ul li a');
+    
+            // Add click event listeners to each link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    // Prevent the default behavior of the link
+                    event.preventDefault();
+    
+                    // Remove the styles from all links
+                    navLinks.forEach(link => {
+                        link.style.color = 'whitesmoke';
+                        link.style.textDecoration = 'none';
+                    });
+    
+                    // Apply styles to the clicked link
+                    this.style.color = 'blue';
+                    this.style.textDecoration = 'underline';
+                    this.style.fontweight = "bold";
+    
+                    // Get the target section's ID from the link's href
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+    
+                    // Scroll to the target section smoothly
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
     </script>
-
+    
+    
 </body>
 
 </html>
