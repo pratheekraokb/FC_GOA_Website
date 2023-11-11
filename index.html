@@ -22,13 +22,20 @@
 
         .parallax-section {
             /* height: 500px; Adjust the height based on your design */
-            background-image: url('/Materials/images/para2.jpg'); /* Replace with your image path */
+            background-image: url('Materials/images/para2.jpg'); 
+            
+            /* background-color: aquamarine; */
+            
             background-attachment: fixed;
             background-position: center;
-            background-repeat: no-repeat;
+            background-repeat: repeat;
             background-size: cover;
-            height: 100vh;
+            /* opacity: 0.8; */
+            height: 295vh;
+     
+            /* background-color: #fff; */
         }
+        
 
 
         div.navbar {
@@ -322,6 +329,9 @@
                 padding-left: 0;
                 margin-left: 0;
             }
+            .parallax-section {
+                height: 485vh;
+            }
         }
 
         /* Media queries for devices with a width between 768px and 1023px (medium-sized tablets) */
@@ -340,8 +350,8 @@
 </head>
 
 <body>
-    <div class="parallax-section">
-    </div>
+    <!-- <div class="parallax-section">
+    </div> -->
     <div style="max-width: 100vw;overflow-x: hidden;" id="home">
         <div class="navbar">
             <div class="logo">
@@ -427,8 +437,8 @@
         </div>
         
 
-        <div class="aboutus" style="max-width: 100%;min-height: 100vh; padding-left: 20px;" name="players" id="players">
-            <h1 style="padding-top: 30px;">Players</h1>
+        <div class="aboutus parallax-section" style="max-width: 100%;min-height: 100vh; padding-left: 20px;" name="players" id="players">
+            <h1 style="padding-top: 30px;color: black;stroke-width: 10px; background-color: transparent;">Players</h1>
             <div class="player-grid" id="playerGrid">
                 <!-- Content will be generated here using JavaScript -->
             </div>
