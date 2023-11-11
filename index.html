@@ -159,6 +159,13 @@
             width: 100%;
         }
 
+        .player-card:hover{
+            background-color: rgb(191, 190, 190);
+            /* color: white; */
+            box-shadow: #777;
+            font-weight: bold;
+        }
+
         .player-photo {
             width: 100%;
             height: auto;
@@ -236,9 +243,14 @@
 
     <style>
         @media screen and (max-width: 767px) {
-            
+            body{
+                overflow-x:hidden;
+            }
             div.logo img{
-                height: 120px;
+                height: 100%;
+            }
+            div.upperContent{
+                width: 85%;
             }
             div.upperContent h1 {
                 visibility: hidden;
@@ -247,7 +259,8 @@
 
            
             .social-icon {
-                margin-top: 10px;
+                /* margin-top: 10px; */
+                visibility: hidden;
             }
 
             div.lowerContent ul {
@@ -257,6 +270,11 @@
                 /* grid-row: 2,1.5; */
                 text-align: center;
                 visibility: hidden;
+            }
+
+            div.lowerContent h2{
+                visibility: visible;
+                color: wheat;
             }
             .aboutus img{
                 max-width: 90vw;
@@ -323,6 +341,7 @@
                     </div>
                 </div>
                 <div class="lowerContent">
+                    <h2 style="text-align: center; visibility: hidden;">FC GOA</h2>
                     <ul>
                         <li><a href="#">HOME</a></li>
                         <li><a href="#aboutus">ABOUT US</a></li>
