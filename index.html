@@ -233,6 +233,71 @@
             right: 0;
         }
     </style>
+
+    <style>
+        @media screen and (max-width: 767px) {
+            
+            div.logo img{
+                height: 120px;
+            }
+            div.upperContent h1 {
+                visibility: hidden;
+                /* font-size: 15px; */
+            }
+
+           
+            .social-icon {
+                /* padding-right: 10px; */
+                /* text-align: center; */
+                margin-top: 10px;
+                /* visibility: hidden; */
+            }
+
+            div.lowerContent ul {
+                /* flex-direction: column; */
+                display: grid;
+                grid-template-columns: repeat(2, 0.2fr);
+                /* grid-row: 2,1.5; */
+                text-align: center;
+                visibility: hidden;
+            }
+            .aboutus img{
+                max-width: 90vw;
+            }
+            .aboutus,
+            .players {
+                padding: 5px; /* Adjust padding for smaller screens */
+            }
+
+            .player-info h2{
+                font-size: 15px;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .player-info p{
+                font-size: 14px;
+                text-align: left;
+            }
+
+            .player-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Media queries for devices with a width between 768px and 1023px (medium-sized tablets) */
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
+            div.upperContent h1 {
+                width: 80%;
+                font-size: 24px; /* Adjust the font size for medium-sized screens */
+            }
+
+            .player-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+    </style>
 </head>
 
 <body>
