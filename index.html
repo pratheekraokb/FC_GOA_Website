@@ -21,7 +21,7 @@
         }
 
         div.navbar {
-            width: 100vw;
+            max-width: 100vw;
             /* background-color: orange; */
             background-color: orangered;
             height: 20vh;
@@ -244,6 +244,7 @@
     <style>
         @media screen and (max-width: 767px) {
             body{
+                max-width: 100vw;
                 overflow-x:hidden;
             }
             div.logo img{
@@ -325,7 +326,7 @@
 </head>
 
 <body>
-    <div style="width: 100vw;">
+    <div style="max-width: 100vw;overflow-x: hidden;">
         <div class="navbar">
             <div class="logo">
                 <img src="Materials/images/logo.svg" alt="FC Goa LOGO">
