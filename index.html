@@ -120,6 +120,66 @@
             text-align: center;
             color: #fff;
         }
+
+        .aboutus {
+            font-size: 22px;
+            letter-spacing: 2px;
+        }
+
+        .aboutus h1 {
+            padding: 6px;
+        }
+
+        .aboutus p {
+            padding: 10px;
+            padding-left: 30px;
+            padding-right: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            /* color: white; */
+        }
+
+        .player-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 0.2fr);
+            grid-gap: 20px;
+            padding-left: 30px;
+            justify-content: space-around;
+        }
+
+        .player-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .player-photo {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .player-info {
+            padding: 20px;
+        }
+
+        .player-name {
+            margin: 0;
+            color: #333;
+        }
+
+        .player-role {
+            margin: 5px 0;
+            color: #777;
+        }
+
     </style>
     <style>
         .slider-container {
@@ -172,21 +232,6 @@
         .next {
             right: 0;
         }
-
-        .aboutus {
-            font-size: 22px;
-            letter-spacing: 2px;
-        }
-
-        .aboutus h1 {
-            padding: 6px;
-        }
-
-        .aboutus p {
-            padding: 10px;
-            padding-left: 30px;
-            padding-right: 15px;
-        }
     </style>
 </head>
 
@@ -208,9 +253,9 @@
                 </div>
                 <div class="lowerContent">
                     <ul>
-                        <li>HOME</li>
+                        <li><a href="#">HOME</a></li>
                         <li><a href="#aboutus">ABOUT US</a></li>
-                        <li>TEAM</li>
+                        <li><a href="#players">TEAM</a></li>
                         <li>FIXTURES</li>
 
                     </ul>
@@ -272,8 +317,18 @@
                 <img src="Materials/images/img3.webp" alt="" height="340px" width="400px">
             </div>
         </div>
+
+        <div class="aboutus" style="max-width: 100%;min-height: 100vh; padding-left: 20px;" name="players" id="players">
+            <h1 style="padding-top: 30px;">Players</h1>
+            <div class="player-grid" id="playerGrid">
+                <!-- Content will be generated here using JavaScript -->
+            </div>
+        </div>
+
+        
     </div>
-    
+ 
+
 
     <script>
         let currentIndex = 0;
@@ -301,7 +356,75 @@
         // document.getElementById('aboutusBtn').addEventListener('click', toggleAboutUs);
     </script>
     <script>
-        
+
+        const players = [
+            { name: "ARSHDEEP SINGH", role: "Goalkeeper", imageSrc: "Materials/images/Players/p1.webp" },
+            { name: "DHEERAJ SINGH", role: "Goalkeeper", imageSrc: "Materials/images/Players/p2.webp" },
+            { name: "HRITHIK TIWARI", role: "Goalkeeper", imageSrc: "Materials/images/Players/p3.webp" },
+            { name: "JAY GUPTA", role: "Defender", imageSrc: "Materials/images/Players/p4.webp" },
+            { name: "LEANDER D'CUNHA", role: "Defender", imageSrc: "Materials/images/Players/p5.webp" },
+            { name: "NARAYAN DAS", role: "Defender", imageSrc: "Materials/images/Players/p6.webp" },
+            { name: "ODEI ONAINDIA ZABALA", role: "Defender", imageSrc: "Materials/images/Players/p7.webp" },
+            { name: "SANDESH JHINGAN", role: "Defender", imageSrc: "Materials/images/Players/p8.webp" },
+            { name: "SANSON PEREIRA", role: "Defender", imageSrc: "Materials/images/Players/p9.webp" },
+            { name: "SAVIOUR GAMA", role: "Defender", imageSrc: "Materials/images/Players/p10.webp" },
+            { name: "SERITON BENNY FERNANDES", role: "Defender", imageSrc: "Materials/images/Players/p11.webp" },
+            { name: "AYUSH DEV CHHETRI", role: "Midfielder", imageSrc: "Materials/images/Players/p12.webp" },
+            { name: "BRANDON FERNANDES", role: "Midfielder", imageSrc: "Materials/images/Players/p13.webp" },
+            { name: "BRISON DEUBEN FERNANDES", role: "Midfielder", imageSrc: "Materials/images/Players/p14.webp" },
+            { name: "NOAH WAIL JACOB SADAOUI", role: "Midfielder", imageSrc: "Materials/images/Players/p15.webp" },
+            { name: "BORIS SINGH THANGJAM", role: "Forwards", imageSrc: "Materials/images/Players/p16.webp" },
+            { name: "CARLOS MARTÍNEZ RODRÍGUEZ", role: "Forwards", imageSrc: "Materials/images/Players/p17.webp" },
+            { name: "DEVENDRA DHAKU MURGAOKAR", role: "Forwards", imageSrc: "Materials/images/Players/p18.webp" },
+            { name: "UDANTA KUMAM SINGH", role: "Forwards", imageSrc: "Materials/images/Players/p19.webp" }
+  
+
+        ];
+
+        // Function to create a player card element
+        function createPlayerCard(player) {
+            const playerCard = document.createElement("div");
+            playerCard.classList.add("player-card");
+
+            const playerPhoto = document.createElement("img");
+            playerPhoto.src = player.imageSrc;
+            playerPhoto.alt = "Player Photo";
+            playerPhoto.classList.add("player-photo");
+
+            const playerInfo = document.createElement("div");
+            playerInfo.classList.add("player-info");
+
+            const playerName = document.createElement("h2");
+            playerName.classList.add("player-name");
+            playerName.textContent = player.name;
+
+            const playerRole = document.createElement("p");
+            playerRole.classList.add("player-role");
+            playerRole.textContent = player.role;
+
+            // Appending elements
+            playerInfo.appendChild(playerName);
+            playerInfo.appendChild(playerRole);
+
+            playerCard.appendChild(playerPhoto);
+            playerCard.appendChild(playerInfo);
+
+            return playerCard;
+        }
+
+        // Function to generate player cards and append them to the player grid
+        function generatePlayerCards() {
+            const playerGrid = document.getElementById("playerGrid");
+
+            players.forEach(player => {
+                const playerCard = createPlayerCard(player);
+                playerGrid.appendChild(playerCard);
+            });
+        }
+
+        // Generate player cards when the DOM is fully loaded
+        document.addEventListener("DOMContentLoaded", generatePlayerCards);
+    </script>
     </script>
 
 </body>
